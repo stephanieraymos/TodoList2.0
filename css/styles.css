@@ -26,7 +26,19 @@ form {
 form input, 
 form button {
     padding: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.25rem;
     border: none;
     background: white;    
+}
+
+form button {
+    color: #f06b47;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #f06b47;
+    color: white;
 }
