@@ -63,3 +63,7 @@ form button:hover {
     justify-content: space-between;
     align-items: center;
 }
+
+.todo li {
+    flex: 1;
+}
