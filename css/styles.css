@@ -123,4 +123,10 @@ select {
 
 .select::after {
     content: "\25BC";
+    position: absolute;
+    background: #f06b47;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    pointer-events: none;
 }
