@@ -108,3 +108,19 @@ select {
     outline: none;
     border: none;
 }
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+select {
+    color: #f06b47;
+    width: 10rem;
+    cursor: pointer;
+}
+
+.select::after {
+    content: "\25BC";
+}
