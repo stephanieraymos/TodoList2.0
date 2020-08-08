@@ -80,5 +80,17 @@ function filterTodo(e) {
                 }
                 break;
         }
-    })
+    });
+}
+
+function saveLocalTodos(todo) {
+    //Check if already exists
+    let todos;
+    if(localStorage.getItem('todos') === null){
+        todos = [];
+    } else {
+        todos = json.parse(localStorage.getItem('todos'));
+    }
+    todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
 }
