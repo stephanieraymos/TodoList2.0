@@ -91,7 +91,7 @@ function saveLocalTodos(todo) {
     if(localStorage.getItem('todos') === null){
         todos = [];
     } else {
-        todos = json.parse(localStorage.getItem('todos'));
+        todos = JSON.parse(localStorage.getItem('todos'));
     }
     todos.push(todo);
     localStorage.setItem('todos', JSON.stringify(todos));
