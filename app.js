@@ -5,6 +5,9 @@ const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector('.filter-todo');
 
 //Event Listeners
+//If content on webpage is loaded:
+document.addEventListener('DOMContentLoaded', getTodos);
+
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterTodo);
@@ -88,11 +91,46 @@ function filterTodo(e) {
 function saveLocalTodos(todo) {
     //Check if already exists
     let todos;
-    if(localStorage.getItem('todos') === null){
+    if (localStorage.getItem('todos') === null) {
         todos = [];
     } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
     todos.push(todo);
     localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+function getTodos() {
+
+    //Check if already exists in local storage
+    let todos;
+    if (localStorage.getItem('todos') === null) {
+        todos = [];
+    } else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+    }
+    todos.forEach(function (todo) {
+        //Todo DIV
+        const todoDiv = document.createElement("div");
+        todoDiv.classList.add("todo");
+        //Create LI
+        const newTodo = document.createElement('li');
+        newTodo.innerText = todo;
+        newTodo.classList.add("todo-item");
+        todoDiv.appendChild(newTodo);
+
+        //Completed button
+        const completedButton = document.createElement("button");
+        completedButton.innerHTML = '<i class = "fas fa-check"></i>';
+        completedButton.classList.add("complete-btn");
+        todoDiv.appendChild(completedButton);
+
+        //TRASH button
+        const trashButton = document.createElement("button");
+        trashButton.innerHTML = '<i class = "fas fa-trash"></i>';
+        trashButton.classList.add("trash-btn");
+        todoDiv.appendChild(trashButton);
+        //Append to list
+        todoList.appendChild(todoDiv);
+    });
 }
